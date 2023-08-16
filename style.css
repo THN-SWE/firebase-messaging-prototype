@@ -17,12 +17,30 @@
 } */
 
 @media (max-width: 400px) {
+   #cardy{
+      font-size: 32px;
+   }
+   #name{
+      height: 50px;
+   }
+   #send-btn{
+      height: 50px;
+   }
   .sticybox {
-   
+   /* height: 40vh; */
+   max-width: auto;
+    
     position: sticky;
     bottom: 0;
 
     /* align-self: flex-end; */
     /* // what is z-index? */
   }
+  .messages {
+   display: flex;
+   flex-direction: column;
+   padding: 20px;
+ 
+   justify-content: center;
+ }
 }
