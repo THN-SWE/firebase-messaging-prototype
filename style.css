@@ -1,6 +1,28 @@
- .messages{
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    
- }
+.messages {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  justify-content: center;
+}
+
+.sticybox {
+  position: sticky;
+  bottom: 1rem;
+  /* align-self: flex-end; */
+  /* // what is z-index? */
+}
+
+/* #contactForm {
+} */
+
+@media (max-width: 400px) {
+  .sticybox {
+   
+    position: sticky;
+    bottom: 0;
+
+    /* align-self: flex-end; */
+    /* // what is z-index? */
+  }
+}
