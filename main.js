@@ -1,3 +1,10 @@
+ 
+window.addEventListener("beforeunload", function (e) {
+    e.preventDefault();
+    e.returnValue = ''
+  });
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyDn3dbwBckev8sK-GlujD_Dgon2nV9UotM",
   authDomain: "iampavam-427a7.firebaseapp.com",
