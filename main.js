@@ -1,9 +1,7 @@
- 
 window.addEventListener("beforeunload", function (e) {
-    e.preventDefault();
-    e.returnValue = ''
-  });
-
+  e.preventDefault();
+  e.returnValue = "";
+});
 
 const firebaseConfig = {
   apiKey: "AIzaSyDn3dbwBckev8sK-GlujD_Dgon2nV9UotM",
@@ -16,14 +14,14 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-var messagesRef = firebase.database().ref("usermessages");
+let messagesRef = firebase.database().ref("usermessages");
 
 document.getElementById("contactForm").addEventListener("submit", submitForm);
 
 function submitForm(e) {
   e.preventDefault();
-  var name = getInputVal("name");
-  var email = "email@example.com";
+  let name = getInputVal("name");
+  let email = "email@example.com";
   saveMessage(name);
   document.getElementById("contactForm").reset();
 }
@@ -33,8 +31,8 @@ function getInputVal(id) {
 }
 
 function saveMessage(name) {
-  var newMessageRef = messagesRef.push();
-  var date = new Date();
+  let newMessageRef = messagesRef.push();
+  let date = new Date();
   let newtime = String(date.getHours()) + " : " + String(date.getMinutes());
   newMessageRef.set({
     name: name,
@@ -66,3 +64,47 @@ messagesRef.on("child_added", function (snapshot) {
 
   console.log(childData);
 });
+
+function dateSession() {
+  let today = new Date();
+  let dd = String(today.getDate().toString().padStart(2, "0"));
+  let mm = (today.getMonth() + 1).toString().padStart(2, "0");
+  let yyyy = today.getFullYear();
+  today = yyyy + "-" + mm + "-" + dd;
+
+  const newpara = document.createElement("p");
+  newpara.style.textAlign = "center";
+  newpara.style.color = `rgba(240, 255, 255, 0.372)`;
+  newpara.style.fontSize = `17px`;
+  newpara.innerHTML = `
+            <hr>
+             <span >${today}</span>`;
+  parentelement.appendChild(newpara);
+}
+
+function dateBreakEveryDay() {
+  var desiredTime = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
+    new Date().getDate(),
+    20,
+    32,
+    0,
+    0
+  ); // 10:00 AM
+
+  var timeDifference = desiredTime - new Date();
+  if (timeDifference < 0) {
+    timeDifference += 86400000; // add 24 hours
+  }
+
+  setTimeout(function () {
+    // Call your function here
+    console.log("another awesome day");
+    dateSession()
+  }, timeDifference);
+  
+  
+}
+
+dateBreakEveryDay();
