@@ -87,8 +87,8 @@ function dateBreakEveryDay() {
     new Date().getFullYear(),
     new Date().getMonth(),
     new Date().getDate(),
-    0,
-    0,
+    20,
+    50,
     0,
     0
   ); // 10:00 AM
