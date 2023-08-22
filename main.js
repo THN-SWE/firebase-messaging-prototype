@@ -87,8 +87,8 @@ function dateBreakEveryDay() {
     new Date().getFullYear(),
     new Date().getMonth(),
     new Date().getDate(),
-    20,
-    50,
+    21,
+    17,
     0,
     0
   ); // 10:00 AM
@@ -98,13 +98,10 @@ function dateBreakEveryDay() {
     timeDifference += 86400000; // add 24 hours
   }
 
-  setTimeout(function () {
-    // Call your function here
-    console.log("another awesome day");
-    dateSession()
-  }, timeDifference);
-  
-  
+  return timeDifference;
 }
-
-dateBreakEveryDay();
+setTimeout(function () {
+  // Call your function here
+  console.log("another awesome day");
+  dateSession();
+}, dateBreakEveryDay());
